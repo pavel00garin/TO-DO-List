@@ -39,28 +39,41 @@ public class Solution {
                     break;
                 case 2:
                     System.out.println("Remove a task ");
-                    // TODO: implement it
+                    System.out.println("Enter the number of the task to remove: ");
+                    Integer taskToRemove = in.nextInt();
+                    taskmap.remove(taskToRemove);
                     break;
+
                 case 3:
                     System.out.println("Update a task ");
-                    // TODO: implement it
+                    System.out.println("Enter the number of the task to update: ");
+                    Integer taskToUpdate = in.nextInt();
+                    in.nextLine(); // consume the newline character
+                    System.out.println("Enter the updated task: ");
+                    String updatedTask = in.nextLine();
+                    taskmap.remove(taskToUpdate);
+                    taskmap.put(taskToUpdate, updatedTask);
                     break;
+
                 case 4:
                     System.out.println("List all tasks ");
                     list_all(taskmap);
                     break;
                 default:
-                    // do nothing
+                    System.out.println("Invalid option. Please choose a valid option.");
+
             }
         } while (choice != 5);
     }
 
     public static void list_all(TreeMap<Integer, String> tm) {
         for (Map.Entry<Integer, String> item : tm.entrySet()) {
-            System.out.print(item.getKey());
-            System.out.print(" ");
+            System.out.print(item.getKey() + ". ");
             System.out.println(item.getValue());
         }
     }
 }
+
+
+
 
